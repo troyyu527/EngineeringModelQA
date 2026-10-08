@@ -1,3 +1,14 @@
 <Solution>
-  <Project Path="EngineeringModelQA.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/EngineeringModelQA.Core/EngineeringModelQA.Core.csproj" />
+    <Project Path="src/EngineeringModelQA.Application/EngineeringModelQA.Application.csproj" />
+    <Project Path="src/EngineeringModelQA.Ifc/EngineeringModelQA.Ifc.csproj" />
+    <Project Path="src/EngineeringModelQA.Infrastructure/EngineeringModelQA.Infrastructure.csproj" />
+    <Project Path="src/EngineeringModelQA/EngineeringModelQA.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EngineeringModelQA.Desktop.Tests/EngineeringModelQA.Desktop.Tests.csproj" />
+    <Project Path="tests/EngineeringModelQA.Ifc.Tests/EngineeringModelQA.Ifc.Tests.csproj" />
+    <Project Path="tests/EngineeringModelQA.Tests/EngineeringModelQA.Tests.csproj" />
+  </Folder>
 </Solution>

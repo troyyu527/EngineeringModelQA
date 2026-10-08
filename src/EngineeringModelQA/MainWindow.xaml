@@ -1,0 +1,90 @@
+<Window x:Class="EngineeringModelQA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:EngineeringModelQA.ViewModels"
+        xmlns:views="clr-namespace:EngineeringModelQA.Views"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
+        Title="Engineering Model QA"
+        Width="1440" Height="900" MinWidth="1100" MinHeight="680"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PageBrush}"
+        FontFamily="Segoe UI" FontSize="14"
+        Foreground="{StaticResource TextBrush}">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:ModelCheckViewModel}">
+            <views:ModelCheckView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PlaceholderViewModel}">
+            <views:PlaceholderView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="236" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation rail -->
+        <Border Background="{StaticResource RailBrush}">
+            <ListBox ItemsSource="{Binding Pages}" SelectedItem="{Binding CurrentPage}"
+                     Background="Transparent" BorderThickness="0" Margin="0,16,0,0"
+                     ItemContainerStyle="{StaticResource RailItem}"
+                     AutomationProperties.AutomationId="NavigationRail" AutomationProperties.Name="Navigation">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding IconGlyph}" Style="{StaticResource Icon}" FontSize="18" Width="24" />
+                            <TextBlock Text="{Binding Title}" Margin="14,0,0,0" FontSize="15" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}" Focusable="False" />
+
+        <!-- Status bar: text of the current page, e.g. "IFC4 • Local processing • Check complete" -->
+        <Border Grid.Row="1" Grid.ColumnSpan="2" Background="White" BorderBrush="{StaticResource BorderBrush}"
+                BorderThickness="0,1,0,0" Padding="18,0">
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock DockPanel.Dock="Right" Text="{Binding VersionText}" Foreground="{StaticResource MutedTextBrush}"
+                           AutomationProperties.AutomationId="VersionText" />
+                <TextBlock DockPanel.Dock="Left" FontSize="16" Margin="0,0,10,0" Width="20">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource Icon}">
+                            <Setter Property="Text" Value="&#xE946;" />
+                            <Setter Property="Foreground" Value="{StaticResource InfoBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CurrentPage.StatusKind}" Value="Complete">
+                                    <Setter Property="Text" Value="&#xE930;" />
+                                    <Setter Property="Foreground" Value="{StaticResource SuccessBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.StatusKind}" Value="Busy">
+                                    <Setter Property="Text" Value="&#xE895;" />
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.StatusKind}" Value="Canceled">
+                                    <Setter Property="Text" Value="&#xE7BA;" />
+                                    <Setter Property="Foreground" Value="{StaticResource WarningBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.StatusKind}" Value="Failed">
+                                    <Setter Property="Text" Value="&#xE783;" />
+                                    <Setter Property="Foreground" Value="{StaticResource ErrorBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Text="{Binding CurrentPage.StatusText}" AutomationProperties.AutomationId="StatusText" />
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

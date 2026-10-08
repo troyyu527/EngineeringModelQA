@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- WPF desktop app and composition root. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>EngineeringModelQA</RootNamespace>
+    <AssemblyTitle>Engineering Model QA</AssemblyTitle>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- WPF implicit usings leave out System.IO (clash with System.Windows.Shapes.Path). -->
+    <Using Include="System.IO" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineeringModelQA.Application\EngineeringModelQA.Application.csproj" />
+    <ProjectReference Include="..\EngineeringModelQA.Ifc\EngineeringModelQA.Ifc.csproj" />
+    <ProjectReference Include="..\EngineeringModelQA.Infrastructure\EngineeringModelQA.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Sample profiles are offered in the Check profile list. -->
+    <None Include="..\..\samples\profiles\*.json" Link="profiles\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,80 @@
+{
+  "description": "Expected results for the generated fixtures. Written by hand from the fixture design (see samples/fixtures/ATTRIBUTION.md); GlobalIds come from the generator listing, not from rule output.",
+  "cases": [
+    {
+      "model": "fixtures/baseline.ifc",
+      "profile": "profiles/member-information.json",
+      "elementCount": 32,
+      "rules": {
+        "STR-001": { "passed": 24, "failed": 2, "notEvaluated": 6 },
+        "STR-002": { "passed": 22, "failed": 2, "notEvaluated": 8 },
+        "STR-003": { "passed": 22, "failed": 2, "notEvaluated": 8 }
+      },
+      "findings": [
+        { "ruleId": "STR-001", "element": "B-103", "globalId": "1mpdRzgi4ejcSNvPuYRwuU", "observed": "(missing)" },
+        { "ruleId": "STR-001", "element": "C-104", "globalId": "3r5ruJCwKe2wYa04wC5YEG", "observed": "(blank)" },
+        { "ruleId": "STR-002", "element": "B-105", "globalId": "2b$T5S8WaeR7DT05Wd08Hf", "observed": "B-105" },
+        { "ruleId": "STR-002", "element": "B-106", "globalId": "3zYLSsKvaJKqL3CkouroVX", "observed": "B-105" },
+        { "ruleId": "STR-003", "element": "C-203", "globalId": "2Zj$OmfonxII29l0HDi6zv", "observed": "C-2O3" },
+        { "ruleId": "STR-003", "element": "B-204", "globalId": "1QWL9zKabIm_Qgor2wmSG1", "observed": "B204" }
+      ]
+    },
+    {
+      "model": "fixtures/revision.ifc",
+      "profile": "profiles/member-information.json",
+      "elementCount": 32,
+      "rules": {
+        "STR-001": { "passed": 25, "failed": 1, "notEvaluated": 6 },
+        "STR-002": { "passed": 23, "failed": 2, "notEvaluated": 7 },
+        "STR-003": { "passed": 24, "failed": 1, "notEvaluated": 7 }
+      },
+      "findings": [
+        { "ruleId": "STR-001", "element": "B-104", "globalId": "1KY9SfOiz8T552BKlzwPLs", "observed": "(missing)" },
+        { "ruleId": "STR-002", "element": "B-105", "globalId": "2b$T5S8WaeR7DT05Wd08Hf", "observed": "B-105" },
+        { "ruleId": "STR-002", "element": "B-106", "globalId": "3zYLSsKvaJKqL3CkouroVX", "observed": "B-105" },
+        { "ruleId": "STR-003", "element": "C-203", "globalId": "2Zj$OmfonxII29l0HDi6zv", "observed": "C203" }
+      ]
+    },
+    {
+      "model": "fixtures/baseline.ifc",
+      "profile": "profiles/structural-full.json",
+      "elementCount": 32,
+      "rules": {
+        "STR-001": { "passed": 24, "failed": 2, "notEvaluated": 6 },
+        "STR-002": { "passed": 22, "failed": 2, "notEvaluated": 8 },
+        "STR-003": { "passed": 22, "failed": 2, "notEvaluated": 8 },
+        "STR-004": { "passed": 30, "failed": 1, "notEvaluated": 1 },
+        "STR-005": { "passed": 30, "failed": 1, "notEvaluated": 1 }
+      },
+      "findings": [
+        { "ruleId": "STR-001", "element": "B-103", "globalId": "1mpdRzgi4ejcSNvPuYRwuU", "observed": "(missing)" },
+        { "ruleId": "STR-001", "element": "C-104", "globalId": "3r5ruJCwKe2wYa04wC5YEG", "observed": "(blank)" },
+        { "ruleId": "STR-002", "element": "B-105", "globalId": "2b$T5S8WaeR7DT05Wd08Hf", "observed": "B-105" },
+        { "ruleId": "STR-002", "element": "B-106", "globalId": "3zYLSsKvaJKqL3CkouroVX", "observed": "B-105" },
+        { "ruleId": "STR-003", "element": "C-203", "globalId": "2Zj$OmfonxII29l0HDi6zv", "observed": "C-2O3" },
+        { "ruleId": "STR-003", "element": "B-204", "globalId": "1QWL9zKabIm_Qgor2wmSG1", "observed": "B204" },
+        { "ruleId": "STR-004", "element": "B-207", "globalId": "0$NvOprkEwAk8pg6K$fSnE", "observed": "(none)" },
+        { "ruleId": "STR-005", "element": "C-206", "globalId": "3uHTxLbo_Bsoa0Pda8A6LT", "observed": "(not in a storey)" }
+      ]
+    },
+    {
+      "model": "fixtures/revision.ifc",
+      "profile": "profiles/structural-full.json",
+      "elementCount": 32,
+      "rules": {
+        "STR-001": { "passed": 25, "failed": 1, "notEvaluated": 6 },
+        "STR-002": { "passed": 23, "failed": 2, "notEvaluated": 7 },
+        "STR-003": { "passed": 24, "failed": 1, "notEvaluated": 7 },
+        "STR-004": { "passed": 31, "failed": 0, "notEvaluated": 1 },
+        "STR-005": { "passed": 30, "failed": 1, "notEvaluated": 1 }
+      },
+      "findings": [
+        { "ruleId": "STR-001", "element": "B-104", "globalId": "1KY9SfOiz8T552BKlzwPLs", "observed": "(missing)" },
+        { "ruleId": "STR-002", "element": "B-105", "globalId": "2b$T5S8WaeR7DT05Wd08Hf", "observed": "B-105" },
+        { "ruleId": "STR-002", "element": "B-106", "globalId": "3zYLSsKvaJKqL3CkouroVX", "observed": "B-105" },
+        { "ruleId": "STR-003", "element": "C-203", "globalId": "2Zj$OmfonxII29l0HDi6zv", "observed": "C203" },
+        { "ruleId": "STR-005", "element": "C-206", "globalId": "3uHTxLbo_Bsoa0Pda8A6LT", "observed": "(not in a storey)" }
+      ]
+    }
+  ]
+}

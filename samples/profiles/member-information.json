@@ -1,0 +1,32 @@
+{
+  // Sample profile shown in the mockups: member marks on structural beams and columns.
+  "profileId": "member-information",
+  "name": "Member Information",
+  "version": "1.0",
+  "scope": "Structural beams and columns",
+  "entityTypes": ["IfcBeam", "IfcColumn"],
+  "propertySet": "ProjectInformation",
+  "propertyName": "MemberMark",
+  "rules": [
+    {
+      "id": "STR-001",
+      "name": "Required mark",
+      "type": "requiredProperty",
+      "severity": "error"
+    },
+    {
+      "id": "STR-002",
+      "name": "Unique mark",
+      "type": "uniqueValue",
+      "severity": "error",
+      "uniqueScope": "project"
+    },
+    {
+      "id": "STR-003",
+      "name": "Naming pattern",
+      "type": "namingPattern",
+      "severity": "warning",
+      "pattern": "^[BC]-\\d{3}$"
+    }
+  ]
+}

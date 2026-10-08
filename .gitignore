@@ -370,6 +370,6 @@ FodyWeavers.xsd
 
 # Personal IFC models; only attributed fixtures under samples/ are tracked
 *.ifc
-# ...but not project folders such as EngineeringQa.Ifc (git is case-insensitive on Windows)
+# ...but not project folders such as EngineeringModelQA.Ifc (git is case-insensitive on Windows)
 !*.ifc/
 !/samples/**/*.ifc

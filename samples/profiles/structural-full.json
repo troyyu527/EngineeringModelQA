@@ -1,0 +1,58 @@
+{
+  // All five rule types. Non-load-bearing walls are excluded from the material and storey rules.
+  "profileId": "structural-full",
+  "name": "Structural Full",
+  "version": "1.0",
+  "scope": "Structural beams, columns, slabs and load-bearing walls",
+  "entityTypes": ["IfcBeam", "IfcColumn", "IfcSlab", "IfcWall"],
+  "propertySet": "ProjectInformation",
+  "propertyName": "MemberMark",
+  "rules": [
+    {
+      "id": "STR-001",
+      "name": "Required mark",
+      "type": "requiredProperty",
+      "severity": "error",
+      "entityTypes": ["IfcBeam", "IfcColumn"]
+    },
+    {
+      "id": "STR-002",
+      "name": "Unique mark",
+      "type": "uniqueValue",
+      "severity": "error",
+      "entityTypes": ["IfcBeam", "IfcColumn"],
+      "uniqueScope": "project"
+    },
+    {
+      "id": "STR-003",
+      "name": "Naming pattern",
+      "type": "namingPattern",
+      "severity": "warning",
+      "entityTypes": ["IfcBeam", "IfcColumn"],
+      "pattern": "^[BC]-\\d{3}$"
+    },
+    {
+      "id": "STR-004",
+      "name": "Material assigned",
+      "type": "materialAssigned",
+      "severity": "error",
+      "excludeWhen": [{ "property": "Pset_WallCommon.LoadBearing", "equals": "FALSE" }]
+    },
+    {
+      "id": "STR-005",
+      "name": "Storey assigned",
+      "type": "storeyAssigned",
+      "severity": "warning",
+      "excludeWhen": [{ "property": "Pset_WallCommon.LoadBearing", "equals": "FALSE" }]
+    },
+    {
+      "id": "STR-006",
+      "name": "Unique mark per storey",
+      "type": "uniqueValue",
+      "severity": "info",
+      "entityTypes": ["IfcBeam", "IfcColumn"],
+      "uniqueScope": "storey",
+      "enabled": false
+    }
+  ]
+}

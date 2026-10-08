@@ -1,0 +1,18 @@
+<Project>
+  <!-- Shared settings: .NET Framework 4.8, current C# with small polyfills, warnings are errors. -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Company>Troy Yu</Company>
+    <Product>Engineering Model QA</Product>
+    <Version>0.4.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- System.Net.Http is not referenced by default on .NET Framework. -->
+    <Using Remove="System.Net.Http" />
+    <Compile Include="$(MSBuildThisFileDirectory)build\Polyfills.cs" Link="Polyfills.cs" Visible="false" />
+  </ItemGroup>
+</Project>

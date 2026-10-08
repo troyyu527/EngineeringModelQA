@@ -6,10 +6,13 @@ A Windows desktop workbench for checking local IFC4 models against JSON rule pro
 
 ## Build
 
-Requires the .NET 10 SDK on Windows.
+Requires Windows, the .NET Framework 4.8 runtime (part of Windows 10/11) and the .NET SDK 8 or later
+(the app targets .NET Framework 4.8; the SDK is only the build tool).
 
 ```
-dotnet build EngineeringQa.slnx
-dotnet test EngineeringQa.slnx
-dotnet run --project src/EngineeringQa.Desktop
+dotnet build EngineeringModelQA.slnx
+dotnet test EngineeringModelQA.slnx
+src\EngineeringModelQA\bin\Debug\net48\EngineeringModelQA.exe
 ```
+
+Sample models are in `samples/fixtures`, sample rule profiles in `samples/profiles`.

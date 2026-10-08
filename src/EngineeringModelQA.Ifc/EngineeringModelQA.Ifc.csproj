@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\EngineeringModelQA.Application\EngineeringModelQA.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xbim.Ifc4" Version="6.1.605" />
+    <PackageReference Include="Xbim.IO.MemoryModel" Version="6.1.605" />
+  </ItemGroup>
+</Project>
